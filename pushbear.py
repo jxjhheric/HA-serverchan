@@ -1,5 +1,5 @@
 """
-Weixin Push Service by ServerChan
+Weixin Push Service by pushbear
 """
 import logging
 from fake_useragent import UserAgent
@@ -12,27 +12,27 @@ from homeassistant.components.notify import (
 import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
-_RESOURCE = 'http://sc.ftqq.com'
+_RESOURCE = 'https://pushbear.ftqq.com'
 
-CONF_SCKEY = 'sc_key'
+CONF_SCKEY = 'sendkey'
 
 def get_service(hass, config, discovery_info=None):
     """Get the ServerChan notification service."""
-    sc_key = config.get(CONF_SCKEY)
-    return ServerchanNotificationService(hass, sc_key)
+    sendkey = config.get(CONF_SCKEY)
+    return ServerchanNotificationService(hass, sendkey)
 
 
 class ServerchanNotificationService(BaseNotificationService):
     """Implementation of the notification service for SimplePush."""
 
-    def __init__(self, hass, sc_key):
+    def __init__(self, hass, sendkey):
         """Initialize the service."""
         _LOGGER.debug("INIT message")
-        self._sc_key = sc_key
+        self._sendkey = sendkey
 
     def send_message(self, message='', **kwargs):
         """Send a message to a user."""
-        url = '{}/{}.send'.format(_RESOURCE, self._sc_key)
+        url = '{}/sub?sendkey={}&'.format(_RESOURCE, self._sendkey)
         title = kwargs.get(ATTR_TITLE)
         if title:
            timestp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
