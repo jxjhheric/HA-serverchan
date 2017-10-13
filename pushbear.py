@@ -14,11 +14,11 @@ import homeassistant.helpers.config_validation as cv
 _LOGGER = logging.getLogger(__name__)
 _RESOURCE = 'https://pushbear.ftqq.com'
 
-CONF_SCKEY = 'sendkey'
+CONF_SENDKEY = 'sendkey'
 
 def get_service(hass, config, discovery_info=None):
     """Get the ServerChan notification service."""
-    sendkey = config.get(CONF_SCKEY)
+    sendkey = config.get(CONF_SENDKEY)
     return ServerchanNotificationService(hass, sendkey)
 
 
@@ -36,7 +36,7 @@ class ServerchanNotificationService(BaseNotificationService):
         title = kwargs.get(ATTR_TITLE)
         if title:
            timestp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-           sendmessage = '{} {}'.format(timestp, message)
+           sendmessage = '{} \n{}'.format(message, timestp)
            payload = {'text': title, 'desp': sendmessage}
            ua = UserAgent()
            header = {'user-agent': ua.random }
