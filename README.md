@@ -20,6 +20,7 @@ Warn:"title" should NOT be null.
 Copy qiyewechat.py under .homeassistant/custom_components/notify
 
 然后写配置文件：
+
         notify:
           - platform: Qiyeweichat
             name: weixin_quanjia       #用于生成服务实体ID  比如这个出来就是notify.weixin_quanjia
@@ -50,3 +51,5 @@ mp4文件 只能10m以内,不过推送个10秒的监控   绰绰有余了,,,,,
 
 
 以上的连接  都是指能够公网访问的连接。。。。。
+
+原链接https://bbs.hassbian.com/thread-7128-1-1.html
