@@ -20,14 +20,14 @@ Warn:"title" should NOT be null.
 Copy qiyewechat.py under .homeassistant/custom_components/notify
 
 然后写配置文件：
-notify:
-  - platform: Qiyeweichat
-    name: weixin_quanjia       #用于生成服务实体ID  比如这个出来就是notify.weixin_quanjia
-    corpid: ***********       #这个是企业微信的企业id，https://work.weixin.qq.com/wework_admin/frame#profile 复制下网页底部的企业信息中的企业ID备用。
-    agentId: ***********    #这个是企业微信里面新建应用的应用id 点击这里创建 https://work.weixin.qq.com/wework_admin/frame#apps/createApiApp
-上传一个应用logo和自定义应用名字，其他默认。
-    secret: ***********       #这个是企业微信里面新建应用的应用secret，创建后打开：https://work.weixin.qq.com/wework_admin/frame#apps 可以看到在 "应用"中的"自建"里有个应用。点进去打开 记录下 AgentId和Secret备用。
-    touser: '@all'    #这里是发送个企业应用里面的全部人  当然  也可以设置指定的人的id  具体再企业微信里面设置
+        notify:
+          - platform: Qiyeweichat
+            name: weixin_quanjia       #用于生成服务实体ID  比如这个出来就是notify.weixin_quanjia
+            corpid: ***********       #这个是企业微信的企业id，https://work.weixin.qq.com/wework_admin/frame#profile 复制下网页底部的企业信息中的企业ID备用。
+            agentId: ***********    #这个是企业微信里面新建应用的应用id 点击这里创建 https://work.weixin.qq.com/wework_admin/frame#apps/createApiApp
+        上传一个应用logo和自定义应用名字，其他默认。
+            secret: ***********       #这个是企业微信里面新建应用的应用secret，创建后打开：https://work.weixin.qq.com/wework_admin/frame#apps 可以看到在 "应用"中的"自建"里有个应用。点进去打开 记录下 AgentId和Secret备用。
+            touser: '@all'    #这里是发送个企业应用里面的全部人  当然  也可以设置指定的人的id  具体再企业微信里面设置
 
 
 然后是服务的调用：
